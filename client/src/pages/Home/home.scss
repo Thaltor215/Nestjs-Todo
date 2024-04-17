@@ -1,0 +1,25 @@
+.todo-container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  grid-template-areas: "todo weather";
+
+  @media screen and (max-width: 790px) {
+    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "weather"
+      "todo";
+  }
+
+  .weather {
+    grid-area: weather;
+  }
+  .todo {
+    grid-area: todo;
+  }
+}

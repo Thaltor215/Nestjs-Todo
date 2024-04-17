@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playpen+Sans:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap");
+
+*::-webkit-scrollbar {
+  height: 7px;
+  width: 7px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background-color: #dadbe8ae;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #dadbe8ae;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #dadbe8ae;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #906bc3;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #906bc3;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #906bc3;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  margin: 0;
+  color: #efefef;
+  background-color: #000;
+  overflow-x: hidden;
+  &:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('data:image/svg+xml,<svg width="1440" height="1024" viewBox="0 0 1440 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(%23clip0_1_39)"><path d="M1440 0H0V1024H1440V0Z" fill="%230B0519"/><path d="M1440 692.224C1354.72 684.203 1269.28 676.011 1191.68 639.488C1113.92 603.136 1043.84 538.112 1005.6 463.36C967.2 388.608 960.48 304.128 930.08 225.28C899.52 146.432 845.28 73.216 791.04 0H1440V692.224Z" fill="%234C2384"/><path d="M0 331.776C73.44 387.413 146.88 443.221 207.52 489.472C268.16 535.723 316 572.757 386.88 611.328C457.92 649.899 552 690.005 599.52 759.125C647.2 828.075 648 926.037 648.96 1024H0V331.776Z" fill="%234C2384"/></g><defs><clipPath id="clip0_1_39"><rect width="1440" height="1024" fill="white"/></clipPath></defs></svg>');
+    background-size: cover;
+    opacity: 0.8;
+  }
+}
+
+.card-blurred.nav {
+  padding: 2rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  h4 {
+    margin: 0;
+  }
+  .btn-logout {
+    cursor: pointer;
+    background-image: url('data:image/svg+xml,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4" stroke="%23efefef" stroke-width="1.5" stroke-linecap="round"></path><path d="M10 12H20M20 12L17 9M20 12L17 15" stroke="%23efefef" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>');
+    width: 1.5rem;
+    height: 1.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    &:hover {
+      transform: scale(1.1);
+      transform-origin: bottom;
+    }
+  }
+}
+
+.loader {
+  margin: auto;
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #efefef;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.App {
+  padding: 1rem;
+}
+
+.card-blurred {
+  position: relative;
+  border-radius: 14px;
+  box-shadow: 0px 2px 14px 0px rgba(0, 0, 0, 40%);
+  overflow: hidden;
+  padding: 1rem 2rem 2rem 2rem;
+  background-color: rgba(225, 225, 225, 0.1);
+  backdrop-filter: blur(50px);
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  color: #efefef;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgba(225, 225, 225, 0.1);
+  -webkit-backdrop-filter: blur(50px);
+  transition: box-shadow 0.25s ease-in-out;
+  &:hover {
+    box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+input:-internal-autofill-selected {
+  appearance: unset !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  color: #efefef !important;
+}
+
+.form-group input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  color: #efefef;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #efefef;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-group input:focus {
+  outline: 0;
+  box-shadow: 0 4px 0 0px rgba(225, 225, 225, 0.25);
+}
+.form-group input.error {
+  outline: 0;
+  box-shadow: 0 4px 0 -1px rgba(235, 37, 37, 0.5);
+}
+
+.form-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  color: #efefef;
+  transition: top 0.1s ease-in-out, font-size 0.1s ease-in-out;
+  pointer-events: none;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: -1.25rem;
+  font-size: 0.75rem;
+}

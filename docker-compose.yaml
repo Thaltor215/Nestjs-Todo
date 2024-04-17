@@ -1,0 +1,50 @@
+version: "3.8" # Specifies the version of Docker Compose being used
+
+services: # Defines the various containers (services) for your application
+  # Database service (postgres)
+  db:
+    image: postgres # Uses the specified postgres image
+    environment:
+      - API_PORT=5001
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres # Sets the default database name
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - ./pg-data:/var/lib/postgresql/data/pgdata
+    ports:
+      - 5432:5432 # Exposes port 5432 on the host to access PostgreSQL from outside
+
+  nestjs:
+    build:
+      dockerfile: Dockerfile
+      context: server
+      target: dev
+    environment:
+      - API_PORT=5001
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres # Sets the default database name
+    volumes:
+      - ./server:/app
+    ports:
+      - "5001:5001"
+    depends_on:
+      - db
+
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: client # Assuming your React.js code is in a directory named 'client'
+    ports:
+      - "3000:3000" # Expose port 3000 on the host to access React application
+    volumes:
+      - ./client:/app # Mount the React.js code into the container
+    environment:
+      - API_URL=http://localhost:5001 # Example environment variable for API URL
+    depends_on:
+      - nestjs 

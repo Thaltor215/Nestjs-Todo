@@ -1,0 +1,17 @@
+.login-card {
+  margin: auto;
+  max-width: 25rem;
+  top: 10vh;
+  h2 {
+    text-align: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
